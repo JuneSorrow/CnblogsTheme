@@ -135,7 +135,7 @@ function Base() {
         $('.m-list-title-select').click(function(){ $(this).parents('.m-list-title').next('.m-icon-list').slideToggle(500) });
 
         // 添加页面特效控制
-        // bndongJs.setPageAnimationControl();
+        window.cnblogsConfig.switchPageAnimation.enable && bndongJs.setPageAnimationControl();
 
         // 添加日/夜间模式控制
         window.cnblogsConfig.switchDayNight.enable && bndongJs.setDayNightControl();
@@ -740,7 +740,7 @@ function Base() {
         const footer = $('#footer'),
               lHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.CnVersions,
               rHref  = 'https://github.com/'+window.cnblogsConfig.GhUserName+'/'+window.cnblogsConfig.GhRepositories+'/tree/'+window.cnblogsConfig.GhVersions;
-        let footerText = footer.text();
+        let footerHtml = footer.html();
         footer.html('<div class="footer-box"></div>');
         let footerBox = $('.footer-box');
 
@@ -754,7 +754,7 @@ function Base() {
         setBlogroll();
 
         // 设置版本信息
-        footerBox.append('<div>'+footerText+'</div>');
+        footerBox.append('<div>'+footerHtml+'</div>');
 
         // 设置网站统计
         footerBox.append('<div id="cnzzInfo"></div>');
